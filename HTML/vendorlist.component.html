@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <title>Vendor List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/JavaScript/vendorlist.component.js"></script>
+    <script src="/JavaScript/vendor.service.js"></script>
+    
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class ="py-3">
+      <table class = "table table-dark";>
+          <tr>
+              <th>Id</th>
+              <th>Code</th>
+              <th>Name</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Phone</th>
+              <th>Email</th>
+          </tr>
+          <tbody id = "tbody">
+
+          </tbody>
+      </table>
+      <div class ="mx-auto" style="width: 200px;">
+      <button type="button" class="btn btn-success" onclick="getVendors();">Refresh</button>
+      </div>
+  </body>
+</html>
