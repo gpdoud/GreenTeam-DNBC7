@@ -20,6 +20,6 @@ const refresh = (vendors) => {
 }
 
 const getVendors = () => {
-    UserService.list()
+    VendorService.list()
       .done( (res) => refresh(res))
   }
