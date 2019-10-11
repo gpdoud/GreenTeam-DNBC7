@@ -11,7 +11,7 @@ VendorService.get = (id) => {
 };
 VendorService.insert = (vendor) => {
   return $.ajax({
-    method: "PUT",
+    method: "POST",
     url: url,
     data: JSON.stringify(vendor),
     dataType: "json",
