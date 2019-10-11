@@ -1,8 +1,23 @@
+let urlParms = {};
 $().ready(() => {
-    $("#btnGet").click(() => {
-      let id = $("#id").val();
-      get(id);
+  let urlParms = Utilities.parseUrlParameters(document.URL);  
+  const get = () => {
+    VendorService.get(urlParms.id)
+    .done( vendor => {
+        $("#pid").val(vendor.id);
+        $("#pcode").val(vendor.code);
+        $("#pname").val(vendor.name);
+        $("#paddress").val(vendor.address);
+        $("#pcity").val(vendor.city);
+        $("#pstate").val(vendor.state);
+        $("#pzip").val(vendor.zip);
+        $("#pphone").val(vendor.phone);
+        $("#pemail").val(vendor.email);
     });
+    
+  };
+  get(urlParms.id);
+
     $("#btnSave").click(() => {
         let vendor = { 
             id : $("#pid").val(),
@@ -21,22 +36,12 @@ $().ready(() => {
         VendorService.update(vendor)
             .done((res)=> {
                 console.log("Insert rc:", res);
+                location.replace(`file:///C:/repos/GreenTeam-DNBC7/HTML/vendorlist.component.html`)
+                
             });
       });
-    });
-  const get = id => {
-    VendorService.get(id)
-    .done( vendor => {
-        $("#pid").val(vendor.id);
-        $("#pcode").val(vendor.code);
-        $("#pname").val(vendor.name);
-        $("#paddress").val(vendor.address);
-        $("#pcity").val(vendor.city);
-        $("#pstate").val(vendor.state);
-        $("#pzip").val(vendor.zip);
-        $("#pphone").val(vendor.phone);
-        $("#pemail").val(vendor.email);
+  
     });
     
-  };
+  
   
